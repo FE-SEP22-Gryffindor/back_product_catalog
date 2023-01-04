@@ -46,6 +46,6 @@
     "uuid": "^9.0.0"
   },
   "lint-staged": {
-    "*.js": "npm run fix-style"
+    "*.js": "eslint --cache --fix"
   }
 }

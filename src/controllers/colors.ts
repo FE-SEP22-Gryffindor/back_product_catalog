@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { Request, Response } from 'express';
 import * as colorsService from '../services/colors';
 
