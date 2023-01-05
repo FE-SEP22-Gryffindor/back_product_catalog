@@ -1,8 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import * as goodController from './controllers/goods';
-import * as colorsController from './controllers/colors';
 import serverless from 'serverless-http';
+import { productsRouter } from './routes/products';
 
 const router = express.Router();
 
@@ -12,10 +11,12 @@ app.use(cors());
 
 router.get('/', (req, res) => {
   res.json({
-    hello: '123',
+    hello: 'Gryffindor',
   });
 });
 
 app.use('/.netlify/functions/server', router);
+
+app.use('/.netlify/functions/server/products', productsRouter);
 
 export const handler = serverless(app);
