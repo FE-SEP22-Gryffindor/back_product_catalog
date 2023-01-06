@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import serverless from 'serverless-http';
-import { productsRouter } from './routes/products';
+import { phonesRouter } from './routes/phones';
 
 const router = express.Router();
 
@@ -17,6 +17,6 @@ router.get('/', (req, res) => {
 
 app.use('/.netlify/functions/server', router);
 
-app.use('/.netlify/functions/server/products', productsRouter);
+app.use('/.netlify/functions/server/phones', phonesRouter);
 
 export const handler = serverless(app);
