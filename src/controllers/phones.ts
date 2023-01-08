@@ -9,6 +9,7 @@ export const getAll = async(req: express.Request, res: express.Response) => {
 
   const goods = await phonesService.getAll(numPage, numPerPage);
 
-  res.setHeader('phone-count', phonesService.getPhonesCount().toString());
+  res.setHeader('Access-Control-Expose-Headers', 'phones-count');
+  res.setHeader('phones-count', phonesService.getPhonesCount().toString());
   res.send(goods);
 };
