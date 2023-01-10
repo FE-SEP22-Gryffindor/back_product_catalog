@@ -37,8 +37,8 @@ if (!DB_HOST || !DB_USER || !DB_PASS || !DB_NAME) {
 
 // export const db = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
 // eslint-disable-next-line max-len
-export const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
-  host: DB_HOST,
+export const sequelize = new Sequelize('grandins_gryffindor', 'grandins_gryffindor', 'n4~5Bm_cB3', {
+  host: 'grandins.mysql.tools',
   dialect: 'mysql',
   dialectModule: require('mysql2'),
 });

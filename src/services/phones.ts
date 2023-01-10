@@ -499,8 +499,15 @@ export const getAll = async(page: number, perPage: number) => {
 
     const { count, rows } = await Phone.findAndCountAll({
       attributes: [
-        'slug', 'name', 'price', 'discountPrice', 'year',
-        'screen', 'memory', 'ram', 'image',
+        'slug',
+        'name',
+        'price',
+        'discountPrice',
+        'year',
+        'screen',
+        'memory',
+        'ram',
+        'image',
       ],
     });
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -508,12 +515,9 @@ export const getAll = async(page: number, perPage: number) => {
     // const phoneRows = rows.map(phone => <Phone>phone);
 
     const startPageItem = perPage * page - perPage + 1;
-    const finishPageItem = perPage * page < count
-      ? perPage * page
-      : count;
+    const finishPageItem = perPage * page < count ? perPage * page : count;
 
-    const currentPageItems = rows
-      .slice(startPageItem - 1, finishPageItem);
+    const currentPageItems = rows.slice(startPageItem - 1, finishPageItem);
 
     return currentPageItems;
   } catch (error) {
