@@ -25,20 +25,16 @@
 // });
 
 import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const { DB_HOST, DB_USER, DB_PASS, DB_NAME } = process.env;
-
-if (!DB_HOST || !DB_USER || !DB_PASS || !DB_NAME) {
-  throw new Error('Missing DB config');
-}
 
 // export const db = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
 // eslint-disable-next-line max-len
-export const sequelize = new Sequelize('grandins_gryffindor', 'grandins_gryffindor', 'n4~5Bm_cB3', {
-  host: 'grandins.mysql.tools',
-  dialect: 'mysql',
-  dialectModule: require('mysql2'),
-});
+export const sequelize = new Sequelize(
+  'grandins_gryffindor',
+  'grandins_gryffindor',
+  'n4~5Bm_cB3',
+  {
+    host: 'grandins.mysql.tools',
+    dialect: 'mysql',
+    dialectModule: require('mysql2'),
+  },
+);
