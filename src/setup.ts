@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { Good } from './models/Good';
 import { Color } from './models/Color';
-import { sequelize } from './utils/db';
+import { db } from './utils/db';
 
 (async() => {
   await Good.sync({ force: true });
@@ -19,7 +19,7 @@ import { sequelize } from './utils/db';
     name: 'red',
   });
 
-  await sequelize.close();
+  await db.close();
 
   console.log('synced!');
 })();
