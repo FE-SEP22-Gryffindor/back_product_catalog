@@ -545,3 +545,61 @@ export const getAll = async(page: number, perPage: number) => {
   //   image: phone.image,
   // }));
 };
+
+export const getNew = async() => {
+  try {
+    await sequelize.authenticate();
+    // console.log('Connection has been established successfully.');
+
+    const newPhones = await Phone.findAll({
+      attributes: [
+        'slug',
+        'name',
+        'price',
+        'discountPrice',
+        'year',
+        'screen',
+        'memory',
+        'ram',
+        'image',
+      ],
+      limit: 6,
+      order: [
+        ['year', 'DESC'],
+      ],
+    });
+
+    return newPhones;
+  } catch (error) {
+    throw new Error(`Unable to connect to the database: ${error}`);
+  }
+};
+
+export const getDiscount = async() => {
+  try {
+    await sequelize.authenticate();
+    // console.log('Connection has been established successfully.');
+
+    const discountPhones = await Phone.findAll({
+      attributes: [
+        'slug',
+        'name',
+        'price',
+        'discountPrice',
+        'year',
+        'screen',
+        'memory',
+        'ram',
+        'image',
+      ],
+      limit: 4,
+      order: [
+        ['discountPrice', 'DESC'],
+      ],
+    });
+
+    return discountPhones;
+  } catch (error) {
+    throw new Error(`Unable to connect to the database: ${error}`);
+  }
+};

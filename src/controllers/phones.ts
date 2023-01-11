@@ -14,3 +14,18 @@ export const getAll = async(req: express.Request, res: express.Response) => {
   res.setHeader('phones-count', phonesCount.toString());
   res.send(phones);
 };
+
+export const getNew = async(req: express.Request, res: express.Response) => {
+  const phones = await phonesService.getNew();
+
+  res.send(phones);
+};
+
+export const getDiscount = async(
+  req: express.Request,
+  res: express.Response,
+) => {
+  const phones = await phonesService.getDiscount();
+
+  res.send(phones);
+};
