@@ -3,7 +3,7 @@ import cors from 'cors';
 import serverless from 'serverless-http';
 import { phonesRouter } from './routes/phones';
 import { tabletsRouter } from './routes/tablets';
-import {accessoriesRouter} from "./routes/accessories";
+import { accessoriesRouter } from './routes/accessories';
 
 const router = express.Router();
 
